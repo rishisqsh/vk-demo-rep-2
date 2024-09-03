@@ -1,0 +1,20 @@
+namespace: elastic
+
+replicaCount: 1
+
+image:
+  repository: 25948.dkr.ecr.ap-south-1.amazonaws.com/translation-service
+  tag: "2.3"
+  pullPolicy: Always
+
+imagepullSecrets:
+  name: translation-image-login
+
+secret:
+  name: translation-secret
+
+
+service:
+  type: NodePort
+  port: 8080
+  targetPort: 8080
